@@ -15,6 +15,14 @@ public class FarmControl : MonoBehaviour
 
     private void Start()
     {
+        for(int i = 0; i < Crops.Length; i++)
+        {
+            if(Crops[i].tag != "Crop")
+            {
+                Crops[i] = Crops[i].transform.GetChild(0).gameObject;
+            }
+        }
+
         if(GrowthStage == FarmState.None)
         {
             cropState = new NoCropState(this);
